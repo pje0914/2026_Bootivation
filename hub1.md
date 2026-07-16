@@ -60,3 +60,18 @@ rpicam-jpeg \
   --width 1280 \
   --height 720 \
   --output map_cam0.jpg
+
+// test 1
+grep -nE \
+  'camera_auto_detect|dtoverlay=.*imx708' \
+  /boot/firmware/config.txt
+
+// test 2
+sudo dmesg -T | \
+grep -iE 'imx708|camera|csi|i2c|pisp|unicam|rp1' | \
+tail -n 150
+
+// test 3
+ls -l /dev/media* /dev/video* 2>/dev/null
+
+  
