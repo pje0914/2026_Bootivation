@@ -1,3 +1,4 @@
+-------------------------------------------------------------------
 // step1: raspberry pi check board
 mkdir -p ~/ssg_ssac_setup
 cd ~/ssg_ssac_setup
@@ -60,7 +61,8 @@ rpicam-jpeg \
   --width 1280 \
   --height 720 \
   --output map_cam0.jpg
-
+  
+-------------------------------------------------------------------
 // test 1
 grep -nE \
   'camera_auto_detect|dtoverlay=.*imx708' \
@@ -74,4 +76,19 @@ tail -n 150
 // test 3
 ls -l /dev/media* /dev/video* 2>/dev/null
 
+-------------------------------------------------------------------
+// cam setting step1
+  sudo grep -RniE \
+'camera_auto_detect|dtoverlay=(imx219|imx708|ov5647|imx477|imx296)' \
+/boot/firmware 2>/dev/null
+
+sudo nl -ba /boot/firmware/config.txt | sed -n '1,120p'
+
+sudo cp -a \
+  /boot/firmware/config.txt \
+  /boot/firmware/config.txt.bak.$(date +%Y%m%d-%H%M%S)
+
+  ls -lh /boot/firmware/config.txt*
+
+  
   
