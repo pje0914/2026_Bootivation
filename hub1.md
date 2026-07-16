@@ -90,5 +90,12 @@ sudo cp -a \
 
   ls -lh /boot/firmware/config.txt*
 
+-------------------------------------------------------------------
+sudo nano /boot/firmware/config.txt
+
+camera_auto_detect=1
   
-  
+sudo grep -RniE \
+'camera_auto_detect|dtoverlay=(imx219|imx708|ov5647|imx477|imx296)' \
+/boot/firmware 2>/dev/null
+
