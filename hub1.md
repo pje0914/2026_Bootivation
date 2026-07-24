@@ -39,3 +39,5 @@ $
 parkjueun@pje030914:~ $ ^C
 
 
+sudo sed -i 's/^dtoverlat=imx219$/dtoverlay=imx219/' /boot/firmware/config.txt
+sudo sed -n '/^\[all\]/,$p' /boot/firmware/config.txt
