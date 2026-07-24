@@ -1,7 +1,9 @@
-mkdir -p ~/Bootivation/camera_check
+mkdir -p ~/Bootivation/camera_test
 
-rpicam-jpeg --camera 0 --timeout 1500 --width 640 --height 480 \
-  --output ~/Bootivation/camera_check/cam0.jpg
+rpicam-vid --camera 0 --nopreview -t 5000 --width 640 --height 480 \
+  --framerate 30 -o ~/Bootivation/camera_test/before.h264 &
 
-  rpicam-jpeg --camera 1 --timeout 1500 --width 640 --height 480 \
-  --output ~/Bootivation/camera_check/cam1.jpg
+rpicam-vid --camera 1 --nopreview -t 5000 --width 640 --height 480 \
+  --framerate 30 -o ~/Bootivation/camera_test/after.h264 &
+
+wait
