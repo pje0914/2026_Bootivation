@@ -41,3 +41,29 @@ parkjueun@pje030914:~ $ ^C
 
 sudo sed -i 's/^dtoverlat=imx219$/dtoverlay=imx219/' /boot/firmware/config.txt
 sudo sed -n '/^\[all\]/,$p' /boot/firmware/config.txt
+
+parkjueun@pje030914:~ $ 
+rpicam-hello --list-cameras
+Available cameras
+-----------------
+0 : imx219 [3280x2464 10-bit RGGB] (/base/axi/pcie@1000120000/rp1/i2c@88000/imx219@10)
+    Modes: 'SRGGB10_CSI2P' : 640x480 [200.16 fps - (1000, 752)/1280x960 crop]
+                             1640x1232 [81.07 fps - (0, 0)/3280x2464 crop]
+                             1920x1080 [47.57 fps - (680, 692)/1920x1080 crop]
+                             3280x2464 [21.19 fps - (0, 0)/3280x2464 crop]
+           'SRGGB8' : 640x480 [200.16 fps - (1000, 752)/1280x960 crop]
+                      1640x1232 [81.07 fps - (0, 0)/3280x2464 crop]
+                      1920x1080 [47.57 fps - (680, 692)/1920x1080 crop]
+                      3280x2464 [21.19 fps - (0, 0)/3280x2464 crop]
+
+1 : imx219 [3280x2464 10-bit RGGB] (/base/axi/pcie@1000120000/rp1/i2c@80000/imx219@10)
+    Modes: 'SRGGB10_CSI2P' : 640x480 [200.16 fps - (1000, 752)/1280x960 crop]
+                             1640x1232 [81.07 fps - (0, 0)/3280x2464 crop]
+                             1920x1080 [47.57 fps - (680, 692)/1920x1080 crop]
+                             3280x2464 [21.19 fps - (0, 0)/3280x2464 crop]
+           'SRGGB8' : 640x480 [200.16 fps - (1000, 752)/1280x960 crop]
+                      1640x1232 [81.07 fps - (0, 0)/3280x2464 crop]
+                      1920x1080 [47.57 fps - (680, 692)/1920x1080 crop]
+                      3280x2464 [21.19 fps - (0, 0)/3280x2464 crop]
+
+parkjueun@pje030914:~ $ ^C
