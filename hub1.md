@@ -83,3 +83,11 @@ python3 ~/Bootivation/rpi_tray/dual_camera_smoke.py
 
 
 ls -lh ~/Bootivation/camera_test/python_*.jpg
+
+parkjueun@pje030914:~ $ 
+ls -lh ~/Bootivation/camera_test/python_*.jpg
+-rw-rw-r-- 1 parkjueun parkjueun 35K  7월 24일  12:11 /home/parkjueun/Bootivation/camera_test/python_after.jpg
+-rw-rw-r-- 1 parkjueun parkjueun 37K  7월 24일  12:11 /home/parkjueun/Bootivation/camera_test/python_before.jpg
+parkjueun@pje030914:~ $ 
+
+
