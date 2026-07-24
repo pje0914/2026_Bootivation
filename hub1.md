@@ -85,3 +85,8 @@ dtoverlay=nospi10
 dtoverlay=imx219,cam0
 dtoverlat=imx219,cam1
 
+
+
+sudo dmesg | grep -iE 'imx219|rp1-cfe|i2c@80000|i2c@88000|failed|error'
+
+
