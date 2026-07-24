@@ -30,4 +30,12 @@ parkjueun@pje030914:~ $ dtoverlay -h imx219 | grep -A5 -B2 cam0
 parkjueun@pje030914:~ $ ^C
 parkjueun@pje030914:~ $ 
 
+un@pje030914:~ $ ^C
+parkjueun@pje030914:~ $ sudo sed -n '/^\[all\]/,$p' /boot/firmware/config.txt | cat -A
+[all]$
+dtoverlay=imx219,cam0$
+dtoverlat=imx219$
+$
+parkjueun@pje030914:~ $ ^C
+
 
