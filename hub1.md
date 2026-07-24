@@ -241,3 +241,5 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 PY
+
+python3 ~/Bootivation/rpi_tray/dual_live_position.py
