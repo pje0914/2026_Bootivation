@@ -1,5 +1,4 @@
-sudo apt update
-sudo apt install -y fonts-nanum fonts-noto-cjk ibus ibus-hangul im-config
+rpicam-hello --list-cameras
 
-im-config -n ibus
-sudo reboot
+sudo apt update && sudo apt install -y rpicam-apps
+
