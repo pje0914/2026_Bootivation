@@ -19,3 +19,67 @@ ls -lh ~/Bootivation/camera_test
 -rw-rw-r-- 1 parkjueun parkjueun 866K  7월 24일  12:06 before.h264
 parkjueun@pje030914:~ $ ^C
 parkjueun@pje030914:~ $ 
+
+
+sudo apt install -y python3-picamera2 python3-opencv python3-numpy python3-zmq
+
+mkdir -p ~/Bootivation/rpi_tray ~/Bootivation/camera_test
+
+cat > ~/Bootivation/rpi_tray/dual_camera_smoke.py <<'PY'
+from pathlib import Path
+import time
+
+import cv2
+from picamera2 import Picamera2
+
+
+OUT_DIR = Path.home() / "Bootivation" / "camera_test"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+cam_before = Picamera2(0)  # 계산 전
+cam_after = Picamera2(1)   # 계산 후
+
+cameras = [cam_before, cam_after]
+
+try:
+    for camera in cameras:
+        config = camera.create_video_configuration(
+            main={"size": (640, 480), "format": "RGB888"},
+            controls={"FrameRate": 30},
+            buffer_count=4,
+        )
+        camera.configure(config)
+
+    cam_before.start()
+    cam_after.start()
+    time.sleep(2)
+
+    before_frame = cam_before.capture_array()
+    after_frame = cam_after.capture_array()
+
+    before_path = OUT_DIR / "python_before.jpg"
+    after_path = OUT_DIR / "python_after.jpg"
+
+    before_ok = cv2.imwrite(str(before_path), before_frame)
+    after_ok = cv2.imwrite(str(after_path), after_frame)
+
+    print(f"BEFORE camera=0 shape={before_frame.shape} saved={before_ok}")
+    print(f"AFTER  camera=1 shape={after_frame.shape} saved={after_ok}")
+    print(f"output: {OUT_DIR}")
+
+    if not before_ok or not after_ok:
+        raise RuntimeError("이미지 저장에 실패했습니다.")
+
+finally:
+    for camera in cameras:
+        try:
+            camera.stop()
+        except Exception:
+            pass
+        camera.close()
+PY
+
+python3 ~/Bootivation/rpi_tray/dual_camera_smoke.py
+
+
+ls -lh ~/Bootivation/camera_test/python_*.jpg
