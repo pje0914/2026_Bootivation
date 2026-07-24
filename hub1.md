@@ -1,4 +1,4 @@
+sudo apt full-upgrade -y
+sudo reboot
+
 rpicam-hello --list-cameras
-
-sudo apt update && sudo apt install -y rpicam-apps
-
