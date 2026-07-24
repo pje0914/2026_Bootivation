@@ -67,3 +67,7 @@ Available cameras
                       3280x2464 [21.19 fps - (0, 0)/3280x2464 crop]
 
 parkjueun@pje030914:~ $ ^C
+
+
+rpicam-hello --camera 0 -t 5000
+rpicam-hello --camera 1 -t 5000
